@@ -1,5 +1,4 @@
-# DisguisedFaceGeneration
-Generation of Photo-realistic Disguised Faces from Sketches using GANs
+# Generation of Photo-realistic Disguised Faces from Sketches using GANs and Stable Diffusion
 
 
 # Project Scope
