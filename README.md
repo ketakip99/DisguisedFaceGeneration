@@ -17,18 +17,21 @@ Responsible for collecting a large dataset of face images, specifically focusing
 facial features, from employee database website. It uses web scraping techniques to gather these
 images from URLs in an automated manner, ensuring diversity in the dataset. The module fetches
 images from websites and stores them for further processing in the following stages.
-2. Face Detection and Cropping Module
+
+3. Face Detection and Cropping Module
 This module uses the HAAR Cascade Classifier for face detection to locate faces within the
 collected images. Once a face is detected, the module automatically crops the squared image to
 focus on the face, discarding irrelevant portions of the image. This ensures that only the face is
 used for further processing, improving the accuracy and relevance of the data for training the AI
 models.
-3. Sketch Generation Module
+
+4. Sketch Generation Module
 Utilizes OpenCV to convert the cropped face images into abstract sketches. Using
 OpenCV’s image processing techniques, such as edge detection and smoothing filters, the module
 generates pencil-drawn sketches that serve as input for the GAN model. These sketches retain key
 facial features necessary for the AI model to accurately generate realistic faces from them.
-4. Sketch-to-Image Generation Module
+
+6. Sketch-to-Image Generation Module
 Uses an Unconditional Pix2Pix Generative Adversarial Network (GAN) to convert the
 abstract sketches into realistic human faces. This module is trained on the dataset of sketches and
 corresponding real face images. After evaluating several models namely Conditional and
@@ -36,7 +39,8 @@ Unconditional Pix2Pix, CycleGAN, Autoencoder with GANs mentioned, and more, the 
 performing GAN was selected due to its ability to generate high-quality, visually coherent faces
 while being computationally efficient. The model produces a realistic face based on the features
 outlined in the sketch.
-5. Disguise Variation Module
+
+7. Disguise Variation Module
 Utilizes Stable Diffusion v1-5 to generate variations of the generated faces, adding
 disguises such as beards, glasses, and hats based on the prompts given by the user through text.
 The model was fine-tuned and retrained to suit the specific needs of face variation generation. This
@@ -44,11 +48,13 @@ module allows for creating multiple variations of the same face, which can simul
 appearances or disguises, making it useful for law enforcement in identifying suspects who may
 have altered their appearance. For this model, dataset creation was required for fine tuning the
 model for specified prompts.
-6. Face Verification Module
+
+8. Face Verification Module
 The Face Verification Module integrates Facenet, PyTorch-based face recognition algorithm
 to compare the generated face images with those captured. This module processes the generated
 and real-world face images to identify matches, ensuring accurate identification of suspects.
-7. User Interface Module
+
+9. User Interface Module
 The User Interface (UI) is developed using Streamlit, providing a simple, interactive
 platform for law enforcement personnel to input sketches, view generated face images, and apply
 disguise variations (through text prompts generic as well as custom prompts) for the user, adjust
